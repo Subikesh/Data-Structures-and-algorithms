@@ -1,4 +1,6 @@
 """
+Predict the winner using minimax algo
+
 Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.
 
 Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.
@@ -14,10 +16,29 @@ def PredictTheWinner(nums):
     :type nums: List[int]
     :rtype: bool
     """
-    if len(nums) <= 2:
-        return True
-    return score(nums, 0, 0, True)
+    summ = sum(nums)
+    score = my_score(nums, summ)
     
+    # If our score is greater than equal to opponents score, return True
+    return True if score >= summ - score else False
+
+    # if len(nums) <= 2:
+    #     return True
+    # return score(nums, 0, 0, True)
+
+    
+def my_score(nums, summ):
+    
+    if len(nums) <= 2:
+        return max(nums)
+    
+    # my_score function will return the score of the opponent
+    choose_first = my_score(nums[1:], summ-nums[0])
+    choose_last = my_score(nums[:-1], summ-nums[-1])
+    
+    # summ - opponents score gives our score
+    return max(summ - choose_first, summ - choose_last) 
+        
     
 def score(nums, f, s, first_person):
     if len(nums) == 2:
@@ -31,9 +52,9 @@ def score(nums, f, s, first_person):
         else:
             return True
     
-    if not self.score(nums[1:], s, f+nums[0], not first_person):
+    if not score(nums[1:], s, f+nums[0], not first_person):
         return True
-    if not self.score(nums[:-1], s, f+nums[-1], not first_person):
+    if not score(nums[:-1], s, f+nums[-1], not first_person):
         return True
     
     return False
