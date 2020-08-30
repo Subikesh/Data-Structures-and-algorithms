@@ -11,3 +11,10 @@ def insert(root, node):
         root.left = insert(root.left, node)
     return root
 
+def search(root, data):
+    if root.data == data:
+        return True
+    elif root.data < data:
+        return search(root.right, data)
+    else:
+        return search(root.left, data)
