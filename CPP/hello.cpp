@@ -9,6 +9,8 @@ int main()
     cout << "Please enter your first name: ";
     string name;
     cin >> name;
+    // Get full name:
+    // getline(cin, name);
     // build the message that we intend to write
     const string greeting = "Hello, " + name + "!";
     
