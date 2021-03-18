@@ -1,5 +1,5 @@
 class Node:
-    # Initializing Binary tree with data, left and right child
+    # Initializing Binary tree node with data, left and right child
     def __init__(self, data, left=None, right=None):
         self.data = data
         self.left = left
@@ -7,16 +7,18 @@ class Node:
 
 class BST:
 
-    def __init__(self):
+    def __init__(self, value_list = []):
         self.root = None
         self.node_count = 0
+        for data in value_list:
+            self.insert(data)
 
     # Insertion in BST
     def insert(self, data):
         # If data already present
         if self.contains(data):
             return False
-        self.root.insert_r(data, self.root)
+        self.root = self.insert_r(data, self.root)
         self.node_count += 1
         return True
 
@@ -110,8 +112,24 @@ class BST:
             self.inorder_traversal(node.right)
 
     # Printing the tree inorder iteratively
-    def inorder_iterative(self, node):
+    # Used stack to append and pop data instead of recursive call - https://www.youtube.com/watch?v=nzmtCFNae9k
+    def inorder_iterative(self):
         print_stack = list()
-        while True:
-            
+        node = self.root
 
+        # do-while loop for print_stack != None
+        while True:
+            if node == None:
+                # if stack and node is null, end the loop
+                if len(print_stack) == 0: break
+
+                node = print_stack.pop()
+                print(node.data)
+                node = node.right
+            else:
+                print_stack.append(node)
+                node = node.left
+
+# Testing BST
+a = BST([10,7,3,1,5,6,16,14,12,13,15])
+a.inorder_iterative()
