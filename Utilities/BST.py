@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node:
     # Initializing Binary tree node with data, left and right child
     def __init__(self, data, left=None, right=None):
@@ -130,6 +132,24 @@ class BST:
                 print_stack.append(node)
                 node = node.left
 
+    # Printing the tree in lever order traversal
+    # This is done using Breadth first search using a queue
+    def level_order(self):
+        print_queue = deque([self.root])
+
+        while len(print_queue) > 0:
+            parent = print_queue.popleft()
+            print(parent.data)
+            if parent.left:
+                print_queue.append(parent.left)
+            if parent.right:
+                print_queue.append(parent.right)
+
 # Testing BST
-a = BST([10,7,3,1,5,6,16,14,12,13,15])
-a.inorder_iterative()
+#                   10
+#           7                 16
+#       3         9        14
+#   1     5     8       12    15
+#          6              13
+a = BST([10,7,3,1,5,6,9,8,16,14,12,13,15])
+a.level_order()
