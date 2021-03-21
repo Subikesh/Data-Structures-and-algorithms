@@ -145,11 +145,12 @@ class BST:
             if parent.right:
                 print_queue.append(parent.right)
 
-# Testing BST
-#                   10
-#           7                 16
-#       3         9        14
-#   1     5     8       12    15
-#          6              13
-a = BST([10,7,3,1,5,6,9,8,16,14,12,13,15])
-a.level_order()
+if __name__ == "__main__":
+    # Testing BST
+    #                   10
+    #           7                 16
+    #       3         9        14
+    #   1     5     8       12    15
+    #          6              13
+    a = BST([10,7,3,1,5,6,9,8,16,14,12,13,15])
+    a.level_order()
