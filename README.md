@@ -13,3 +13,4 @@ Feel free to contribute or fork this repository...
 * [Union Find](../master/Utilities/union_find.py)
 * [Binary Search Tree](../master/Utilities/BST.py)
 * [Graphs](../master/Utilities/graph.py)
+* [Fenwick tree(Binary indexed tree)](../master/Utilities/fenwick_tree.py)
