@@ -14,3 +14,4 @@ Feel free to contribute or fork this repository...
 * [Binary Search Tree](../master/Utilities/BST.py)
 * [Graphs](../master/Utilities/graph.py)
 * [Fenwick tree(Binary indexed tree)](../master/Utilities/fenwick_tree.py)
+* [Trie](../master/Utilities/trie.py)
