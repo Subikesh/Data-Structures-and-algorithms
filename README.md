@@ -14,4 +14,6 @@ Feel free to contribute or fork this repository...
 * [Binary Search Tree](../master/Utilities/BST.py)
 * [Graphs](../master/Utilities/graph.py)
 * [Fenwick tree(Binary indexed tree)](../master/Utilities/fenwick_tree.py)
-* [Trie](../master/Utilities/trie.py)
+* [Trie (Prefix tree)](../master/Utilities/trie.py)
+  * Suffix array - Stores all sorted suffixes of a string - [Suffix array intro](https://youtu.be/zqKlL3ZpTqs)
+    * [Longest common substring problem](https://youtu.be/Ic80xQFWevc)
