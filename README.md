@@ -12,6 +12,8 @@ Feel free to contribute or fork this repository...
 * [Heap](../master/Utilities/heap.py)
 * [Union Find](../master/Utilities/union_find.py)
 * [Binary Search Tree](../master/Utilities/BST.py)
+* Balanced Binary Search Tree
+  * [AVL tree](../master/Utilities/AVL_tree.py)
 * [Graphs](../master/Utilities/graph.py)
 * [Fenwick tree(Binary indexed tree)](../master/Utilities/fenwick_tree.py)
 * [Trie (Prefix tree)](../master/Utilities/trie.py)
