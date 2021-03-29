@@ -90,28 +90,44 @@ class BST:
         if node.data > data:
             return self.contains_r(data, node.left)
 
-    # Helper function to find the max node in the tree
+    # Helper function to find the min and max node in the tree
     def find_max(self, node):
         while node.right != None:
             node = node.right
+        return node
+    
+    def find_min(self, node):
+        while node.left != None:
+            node = node.left
         return node
 
     # Returns the max height of the tree
     def get_height(self):
         return self.height(self.root)
     
-    def height(self, node):
+    def height(self, node):         
         if node is None:
             return 0
         return max(self.height(node.left), self.height(node.right)) + 1
 
     # Printing the tree in left-child, parent, right-child order
     # Can be modified to make preorder and postorder traversels
-    def inorder_traversal(self, node):
+    def inorder_traversal(self, node=-1):
+        if node == -1:
+            node = self.root
         if node:
             self.inorder_traversal(node.left)
-            print(node.data)
+            print(node.data, end=' ')
             self.inorder_traversal(node.right)
+
+    # Depth-first search(DFS) in trees
+    def preorder_traversal(self, node=-1):
+        if node == -1:
+            node = self.root
+        if node:
+            print(node.data, end=' ')
+            self.preorder_traversal(node.left)
+            self.preorder_traversal(node.right)
 
     # Printing the tree inorder iteratively
     # Used stack to append and pop data instead of recursive call - https://www.youtube.com/watch?v=nzmtCFNae9k
