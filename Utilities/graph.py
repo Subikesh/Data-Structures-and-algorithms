@@ -15,6 +15,7 @@ class Graph:
         self.graph[u].append(v) 
   
     # A function used by DFS 
+    # Time: O(V + E) | Space O(V) - E are edges and V are vertices of graph
     def DFSUtil(self, v, visited): 
   
         # Mark the current node as visited and print it 

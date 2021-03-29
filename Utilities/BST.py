@@ -1,13 +1,12 @@
 from collections import deque
 
-class Node:
-    # Initializing Binary tree node with data, left and right child
-    def __init__(self, data, left=None, right=None):
-        self.data = data
-        self.left = left
-        self.right = right
-
 class BST:
+    class Node:
+        # Initializing Binary tree node with data, left and right child
+        def __init__(self, data, left=None, right=None):
+            self.data = data
+            self.left = left
+            self.right = right
 
     def __init__(self, value_list = []):
         self.root = None
@@ -20,39 +19,40 @@ class BST:
         # If data already present
         if self.contains(data):
             return False
-        self.root = self.insert_r(data, self.root)
+        self.root = self._insert_r(data, self.root)
         self.node_count += 1
         return True
 
     # Recursive function to insert in BST
-    def insert_r(self, data, node):
+    # Protected method
+    def _insert_r(self, data, node):
         # Base case: found leaf node
         if node is None:
-            return Node(data)
+            return self.Node(data)
         if data < node.data:
-            node.left = self.insert_r(data, node.left)
+            node.left = self._insert_r(data, node.left)
         else:
-            node.right = self.insert_r(data, node.right)
+            node.right = self._insert_r(data, node.right)
         return node
         
     # Deletion in BST
     def remove(self, data):
         # if data is present
         if self.contains(data):
-            self.remove_r(data, self.root)
+            self._remove_r(data, self.root)
             self.node_count -= 1
             return True
         return False
 
     # Recursive function to insert in BST
-    def remove_r(self, data, node):
+    def _remove_r(self, data, node):
         if node is None:    return None
 
         # Dig into(traverse) the tree to find the node we are looking for:
         if data < node.data:
-            node.left = self.remove_r(data, node.left)
+            node.left = self._remove_r(data, node.left)
         elif data > node.data:
-            node.right = self.remove_r(data, node.right)
+            node.right = self._remove_r(data, node.right)
         # if the node to be deleted is `node`
         else:
 
@@ -72,7 +72,7 @@ class BST:
                 new_node = self.find_max(node.left)
                 node.data = new_node.data
                 # Remove the replaced node to avoid repetition
-                node.left = self.remove_r(new_node.data, node.left)
+                node.left = self._remove_r(new_node.data, node.left)
         return node
 
     # To check if data is present in tree
@@ -126,11 +126,12 @@ class BST:
                 if len(print_stack) == 0: break
 
                 node = print_stack.pop()
-                print(node.data)
+                print(node.data, end=' ')
                 node = node.right
             else:
                 print_stack.append(node)
                 node = node.left
+        print()
 
     # Printing the tree in lever order traversal
     # This is done using Breadth first search using a queue
@@ -139,11 +140,12 @@ class BST:
 
         while len(print_queue) > 0:
             parent = print_queue.popleft()
-            print(parent.data)
+            print(parent.data, end=" ")
             if parent.left:
                 print_queue.append(parent.left)
             if parent.right:
                 print_queue.append(parent.right)
+        print()
 
 if __name__ == "__main__":
     # Testing BST
