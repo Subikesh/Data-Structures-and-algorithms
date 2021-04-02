@@ -1,16 +1,10 @@
 from collections import deque
+from tree import BinaryTree
 
-class BST:
-    class Node:
-        # Initializing Binary tree node with data, left and right child
-        def __init__(self, data, left=None, right=None):
-            self.data = data
-            self.left = left
-            self.right = right
-
+# Inherited basic binary tree structure by BST
+class BST(BinaryTree):
     def __init__(self, value_list = []):
-        self.root = None
-        self.node_count = 0
+        super().__init__()
         for data in value_list:
             self.insert(data)
 
