@@ -24,3 +24,10 @@ void reverse(int arr[], int n) {
     for (int i = 0; i < n/2; i++)
         swap(&arr[i], &arr[n-i-1]);
 }
+
+int is_vowel(char c) {
+    if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' || c=='A' || c=='E' || c=='I' || c=='O' || c=='U')
+        return 1;
+    else
+        return 0;
+}
