@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,19 +19,22 @@ vector<int> insertion_sort(vector<int> ar) {
 }
 
 int main() {
-    vector<int> arr;
+    // vector<int> arr;
+    int arr[20];
     int n, input;
     cin >> n;
-    cout << sizeof(int) << sizeof(char) << sizeof(float) << sizeof(long int);
     for(int i=0; i<n && cin >> input; i++) {
-        arr.push_back(input);
-        // arr[i] = input;`
+        // arr.push_back(input);
+        arr[i] = input;
     }
-    arr = insertion_sort(arr);
+    // arr = insertion_sort(arr);
+    sort(arr, arr+n);
+    cout << endl;
+    cout << *max_element(arr, arr+3);
     cout << endl;
     // for(auto it=arr.begin(); it != arr.end(); it++) {
     //     cout << *it << ' ';
     // }
-    for(int i=0; i< arr.size(); i++) 
+    for(int i=0; i< n; i++) 
         cout << arr[i] << ' ';
 }
