@@ -6,9 +6,10 @@
 
 using namespace std;
 
-void iterate(map<int, int> mp) {
+void iterate(map<string, int> mp) {
     for (auto ite = mp.begin(); ite != mp.end(); ite++)
         cout << ite->first << '\t' << ite->second << endl;
+    cout << endl;
 }
 
 bool compare_maps(const pair<int, int> m1, const pair<int, int> m2) {
@@ -16,20 +17,24 @@ bool compare_maps(const pair<int, int> m1, const pair<int, int> m2) {
 }
 
 int main() {
-    map<int, int> smap1 = {{1, 50},{4, 28},{2, 5},{6, 20},{10, 9}};
+    map<string, int> smap1 = {{"1", 50},{"4", 28},{"2", 5},{"6", 20},{"10", 9}};
+    iterate(smap1);
+
+    smap1["6"] = 40;
+    smap1["10"] = 50;
     iterate(smap1);
     cout << endl;
-    vector<pair<int, int>> vec;
+    // vector<pair<int, int>> vec;
 
-	// copy key-value pairs from the map to the vector
-    for (auto it2=smap1.begin(); it2!=smap1.end(); it2++) 
-    {
-        vec.push_back(make_pair(it2->first, it2->second));
-    }
-    sort(vec.begin(), vec.end(), compare_maps);
-    // iterate(vec);
-    for(auto it2 = vec.begin(); it2!= vec.end(); it2++)
-        cout << it2->first << '\t' << it2->second << endl;
+	// // copy key-value pairs from the map to the vector
+    // for (auto it2=smap1.begin(); it2!=smap1.end(); it2++) 
+    // {
+    //     vec.push_back(make_pair(it2->first, it2->second));
+    // }
+    // sort(vec.begin(), vec.end(), compare_maps);
+    // iterate(smap1);
+    // for(auto it2 = vec.begin(); it2!= vec.end(); it2++)
+    //     cout << it2->first << '\t' << it2->second << endl;
     // cout << smap1.find(20)->first << '\t' << smap1.find(20)->second;
     // cout << smap1.end()->first << '\t' << smap1.end()->second;
     // string num;
