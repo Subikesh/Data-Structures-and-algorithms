@@ -56,6 +56,10 @@ int main() {
     int arr[20];
     int n, input;
     cin >> n;
+
+    // Get the max value of unsigned int
+    // cout << UINT_MAX+1;
+
     for(int i=0; i<n && cin >> input; i++) {
         // arr.push_back(input);
         arr[i] = input;

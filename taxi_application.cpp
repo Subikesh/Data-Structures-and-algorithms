@@ -42,7 +42,7 @@ public:
     void get_summary() {
         cout << "Taxi-" << id << "\tTotal Earnings: Rs." << earning << endl
             << "BookingId \tCustomerId \tFrom \tTo \tAmount"<<endl;
-        for(auto booking = bookings.begin(); booking != bookings.end(); booking++) {
+        for(vector<Booking>::iterator booking = bookings.begin(); booking != bookings.end(); booking++) {
             booking->get_summary();
         cout << endl;
         }
@@ -95,7 +95,8 @@ public:
 
     void get_summary() {
         for(int i=0; i<taxis.size() ; i++) {
-            taxis[i].get_summary();
+        	if(taxis[i].earning!= 0)
+            	taxis[i].get_summary();
         }
     }
 };
