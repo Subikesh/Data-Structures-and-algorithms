@@ -86,17 +86,18 @@ void sort_by_frequency(int arr[], int n) {
     }
 }
 
-int convert_to_int(string str) {
-    stringstream convert(str);
-    int n;
-    convert >> n;
-    return n;
-}
+// Use stoi() instead 
+// int convert_to_int(string str) {
+//     stringstream convert(str);
+//     int n;
+//     convert >> n;
+//     return n;
+// }
 
 int main() {
     string new_str;
     int a;
     cin >> new_str;
-    a = convert_to_int(new_str);
+    a = stoi(new_str);
     cout << (a+100);
 }

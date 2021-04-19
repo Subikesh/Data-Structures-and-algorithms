@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+#include <math.h>
+#include <string.h>
+#include <fstream>
 
 using namespace std;
 
@@ -51,28 +54,80 @@ void sort_by_frequency(int arr[], int n) {
     }
 }
 
+class some_class {
+    private:
+        int id;
+        int cl_id;
+    public:
+        char name[50];
+        float mark;
+        some_class() {
+            id=0;
+            cl_id = 0;
+            strcpy(name,"h");
+            mark = 0;
+        }
+        some_class(int id, int cl_id, float mark):id(id), cl_id(cl_id), mark(mark) {
+            cout << "Enter name :";
+            cin.getline(name, 50);
+        }
+        void get_data() {
+            cout << id << ' ' << cl_id << ' ' << name << ' ' << mark << endl;
+        }
+};
+
+void file_read() {
+    ifstream fin;
+    fin.open("new_text.txt", ios::in | ios::binary);
+    some_class cls;
+    while(fin.read((char *)&cls, sizeof(cls))) {
+        // cout << line << " s" << endl;
+        cout << "read\t";
+        cls.get_data();
+    }
+    fin.close();
+}
+
+void file_write() {
+    ofstream fout;
+    string line;
+    some_class cls1(1, 10, 94.32), cls2(3, 28, 38.3429);
+    fout.open("new_text.txt", ios::out | ios::binary);
+    cls1.get_data();
+    cls2.get_data();
+    // for(int i=0; i<5; i++) {
+    //     getline(cin, line);
+    //     fout << line << endl;
+    // }
+    fout.write((char *)&cls1, sizeof(cls1));
+    fout.write((char *)&cls2, sizeof(cls2));
+    fout.close();
+}
+
 int main() {
     // vector<int> arr;
     int arr[20];
     int n, input;
-    cin >> n;
+    // cin >> n;
 
-    // Get the max value of unsigned int
-    // cout << UINT_MAX+1;
+    // // Get the max value of unsigned int
+    // // cout << UINT_MAX+1;
 
-    for(int i=0; i<n && cin >> input; i++) {
-        // arr.push_back(input);
-        arr[i] = input;
-    }
-    // arr = insertion_sort(arr);
-    // sort(arr, arr+n);
-    sort_by_frequency(arr, n);
-    cout << endl;
-    cout << *max_element(arr, arr+3);
-    cout << endl;
-    // for(auto it=arr.begin(); it != arr.end(); it++) {
-    //     cout << *it << ' ';
+    // for(int i=0; i<n && cin >> input; i++) {
+    //     // arr.push_back(input);
+    //     arr[i] = input;
     // }
-    for(int i=0; i< n; i++) 
-        cout << arr[i] << ' ';
+    // // arr = insertion_sort(arr);
+    // // sort(arr, arr+n);
+    // sort_by_frequency(arr, n);
+    // cout << endl;
+    // cout << *max_element(arr, arr+3);
+    // cout << endl;
+    // // for(auto it=arr.begin(); it != arr.end(); it++) {
+    // //     cout << *it << ' ';
+    // // }
+    // for(int i=0; i< n; i++) 
+    //     cout << arr[i] << ' ';
+    file_write();
+    file_read();
 }
