@@ -8,19 +8,6 @@
 
 using namespace std;
 
-vector<int> insertion_sort(vector<int> ar) {
-    int i, j, hole, curr;
-    for(i=0; i<ar.size(); i++) {
-        if(i == 0) continue;
-        hole = i;
-        curr = ar[hole];
-        for(j=i-1; j>=0 && ar[j] >= curr; j--) {
-            ar[j+1] = ar[j];
-        }
-        ar[j+1] = curr;
-    }
-    return ar;
-}
 bool freq_compare(pair<int, int> p1, pair<int, int> p2) {
     // Check the frequency 
     // if frequency is same, check the values of pairs
@@ -33,11 +20,12 @@ void sort_by_frequency(int arr[], int n) {
 
     // Creating frequency map in hash 
     for(i=0; i<n; i++) {
-        if(hash.find(arr[i]) != hash.end())
-            hash[arr[i]]++;
-        else
-            // hash.insert(make_pair(arr[i], 1));
-            hash[arr[i]] = 1;
+        hash[arr[i]]++;
+        // if(hash.find(arr[i]) != hash.end())
+        //     hash[arr[i]]++;
+        // else
+        //     // hash.insert(make_pair(arr[i], 1));
+        //     hash[arr[i]] = 1;
     }
 
     // For sorting the map - copy it to vector

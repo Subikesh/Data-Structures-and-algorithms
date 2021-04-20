@@ -87,17 +87,33 @@ void sort_by_frequency(int arr[], int n) {
 }
 
 // Use stoi() instead 
-// int convert_to_int(string str) {
-//     stringstream convert(str);
-//     int n;
-//     convert >> n;
-//     return n;
-// }
+int convert_to_int(string str) {
+    stringstream convert(str);
+    int n;
+    convert >> n;
+    return n;
+}
+
+// Convert int to binary(string)
+string to_binary_str(int num) {
+    string res;
+    for(int i=num; i>0; i/=2) {
+        res = to_string(i%2)+res;
+    }
+    return res;
+}
 
 int main() {
     string new_str;
     int a;
+    /* // string to int 
     cin >> new_str;
     a = stoi(new_str);
-    cout << (a+100);
+    cout << (a+100); */
+    
+    // use to_string for int to string
+
+    // int to binary(string)
+    cin >> a;
+    cout << to_binary_str(a);
 }
