@@ -12,8 +12,8 @@ void iterate(map<string, int> mp) {
     cout << endl;
 }
 
-bool compare_maps(const pair<int, int> m1, const pair<int, int> m2) {
-    return (m1.second < m2.second);
+bool compare_pairs(const pair<int, int> p1, const pair<int, int> p2) {
+    return (p1.second < p2.second);
 }
 
 int main() {
@@ -26,25 +26,22 @@ int main() {
     cout << endl;
     // vector<pair<int, int>> vec;
 
-	// // copy key-value pairs from the map to the vector
-    // for (auto it2=smap1.begin(); it2!=smap1.end(); it2++) 
-    // {
-    //     vec.push_back(make_pair(it2->first, it2->second));
-    // }
-    // sort(vec.begin(), vec.end(), compare_maps);
-    // iterate(smap1);
-    // for(auto it2 = vec.begin(); it2!= vec.end(); it2++)
-    //     cout << it2->first << '\t' << it2->second << endl;
-    // cout << smap1.find(20)->first << '\t' << smap1.find(20)->second;
-    // cout << smap1.end()->first << '\t' << smap1.end()->second;
-    // string num;
-    // map<string, string>::iterator itr;
-    // cin >> num;
-    // // Retrieve an element from map - use find()
-    // // If element not present in map - it returns map.end() iterator
-    // if((itr = smap1.find(num)) == smap1.end())
-    //     cout << "Nope";
-    // else
-    //     cout << "Here it is : " << itr->first << '\t' << itr->second;
+	/* // Declaring priority_queue with custom comparator
+    auto compare = [](int lhs, int rhs)
+                {
+                    return lhs < rhs;
+                };
+
+    std::priority_queue<int, std::vector<int>, decltype(compare)> q(compare);
+    (or)
+    struct CustomCompare
+    {
+        bool operator()(const int& lhs, const int& rhs)
+        {
+            return lhs < rhs;
+        }
+    };
+    std::priority_queue<int, std::vector<int>, CustomCompare> pq;
+    */
     return 0;
 }
