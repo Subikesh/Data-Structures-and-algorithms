@@ -103,9 +103,64 @@ string to_binary_str(int num) {
     return res;
 }
 
+template <typename T = int>
+T reverse(T n) {
+    T res  = 0;
+    while (n>0) {
+        res = res*10 + n%10;
+        n/=10;
+    }
+    return res;
+}
+
+int add_with_base(long int n1, long int n2, int base) {
+    long int unit_sum, carry=0, res=0;
+    while(n1>0 && n2>0) {
+        unit_sum = n1%10 + n2%10 + carry;
+        carry = 0;
+        if(unit_sum >= base) {
+            carry++;
+            res = res*10 + (unit_sum-base);
+        }
+        else  {
+            res = res*10 + unit_sum;
+        }
+        n1/=10; n2/=10;
+    }
+    while(n1>0) {
+        unit_sum = n1%10 + carry;
+        carry = 0;
+        if(unit_sum >= base) {
+            carry++;
+            res = res*10 + (unit_sum-base);
+        }
+        else  {
+            res = res*10 + unit_sum;
+        }
+        n1/=10;
+    }
+    while(n2>0) {
+        unit_sum = n2%10 + carry;
+        carry = 0;
+        if(unit_sum >= base) {
+            carry++;
+            res = res*10 + (unit_sum-base);
+        }
+        else  {
+            res = res*10 + unit_sum;
+        }
+        n2/=10;
+    }
+    if (carry == 1) {
+        res = res*10 + carry;
+    }
+    return reverse<long int>(res);
+}
+
 int main() {
     string new_str;
-    int a;
+    int a, base;
+    long int n1, n2;
     /* // string to int 
     cin >> new_str;
     a = stoi(new_str);
@@ -114,6 +169,7 @@ int main() {
     // use to_string for int to string
 
     // int to binary(string)
-    cin >> a;
-    cout << to_binary_str(a);
+    cin >> n1 >> n2 >> base;
+    // cout << to_binary_str(a);
+    cout << add_with_base(n1, n2, base);
 }
