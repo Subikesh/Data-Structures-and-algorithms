@@ -50,9 +50,50 @@ void reverse_pattern(int n) {
     }
 }
 
+/* Print matrix in zigzag pattern :
+Input:
+1 2 3
+4 5 6
+7 8 9
+10 11 12
+Output :
+1 2 4 7 5 3 6 8 10 11 9 12
+*/
+void matrix_zigzag(vector<vector<int>> mat, int n, int m) {
+    vector<deque<int>> result(n+m-1);
+    int i, j, sum;
+    for(i=0; i<n; i++) {
+        for(j=0; j<m; j++) {
+            sum = i+j;
+            if(sum%2==0) {
+                result[sum].push_front(mat[i][j]);
+            }
+            else {
+                result[sum].push_back(mat[i][j]);
+            }
+        }
+    }
+    for(i=0; i<n+m-1; i++) {
+        for(j=0; j<result[i].size(); j++) {
+            cout << result[i][j] << ' ';
+        }
+    }
+}
+
 int main() {
-    int n;
-    cin >> n;
+    int n, m, k=1;
+    cin >> n >> m;
     // pyramid(n);
-    reverse_pattern(n);
+    // reverse_pattern(n);
+
+    /* // Print matrix in zigzag pattern
+    vector<vector<int>> mat(n, vector<int> (m));
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<m; j++) {
+            mat[i][j] = k++;
+            cout << mat[i][j] << ' ';
+        }
+        cout << endl;
+    }
+    matrix_zigzag(mat, n, m); */
 }
