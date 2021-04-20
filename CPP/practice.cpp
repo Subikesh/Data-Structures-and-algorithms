@@ -92,23 +92,6 @@ void file_write() {
     fout.close();
 }
 
-void pyramid(int n) {
-    int num = 1, i, j, temp;
-    for(i=0; i<n; i++) {
-        for(j=0; j<n-i-1; j++) cout << "  ";
-
-        for(j=0; j<(2*i+1)/2; j++) {
-            cout << num++ << ' ';
-        }
-        // cout << num << ' ';
-        temp = num++;
-        for(; j<(2*i+1); j++) {
-            cout << temp-- << ' ';
-        }
-        cout << endl;
-    }
-}
-
 int main() {
     // vector<int> arr;
     int arr[20];
@@ -138,6 +121,4 @@ int main() {
     file_write();
     file_read(); */
 
-    // Print pyramid pattern
-    pyramid(n);
 }
