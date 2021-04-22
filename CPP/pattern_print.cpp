@@ -80,6 +80,36 @@ void matrix_zigzag(vector<vector<int>> mat, int n, int m) {
     }
 }
 
+/*
+n=5
+    *
+   ***
+  *****
+   ***
+    *
+*/
+void StarPyramid(int n) {
+    int i, j;
+    for(i=0; i<n; i++) {
+        for(j=0; j<n-i-1; j++) {
+            cout << ' ';
+        }
+        for(j=0; j<(i*2+1); j++) {
+            cout << '*';
+        }
+        cout << endl;
+    }
+    for(i=n-1; i>0; i--) {
+        for(j=0; j<=(n-i-1); j++) {
+            cout << ' ';
+        }
+        for(j=0; j<(i*2-1); j++) {
+            cout << '*';
+        }
+        cout << endl;
+    }
+}
+
 int main() {
     int n, m, k=1;
     cin >> n >> m;
@@ -96,4 +126,5 @@ int main() {
         cout << endl;
     }
     matrix_zigzag(mat, n, m); */
+    StarPyramid(5);
 }
