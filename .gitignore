@@ -1,6 +1,12 @@
 # Ignore the test file
 test.py
 
+# VScode settings
+.vscode/
+
+# Other files
+private/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
