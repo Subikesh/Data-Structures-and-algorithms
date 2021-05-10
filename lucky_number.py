@@ -17,11 +17,24 @@ def isLucky(n, k = 2):
         return 0
     return isLucky(n - n//k, k+1)
 
+def getMax(arr, curr_max = 1, n=5):
+    if(len(arr) == n):
+        prod = 1
+        for i in arr:
+            prod *= i
+        return prod
+    
+    if(len(arr) < n):
+        return None
+    
+    return max(getMax(arr[1:], curr_max*arr[0], n-1), getMax(arr[1:], curr_max, n))
 
 if __name__ == '__main__':
-    t=int(input())
+    # t=int(input())
     
-    for tcs in range(t):
-        n=int(input())
-        print(isLucky(n))
+    # for tcs in range(t):
+    #     n=int(input())
+    #     print(isLucky(n))
+    print(getMax([-1, -2, -3, 1, 2, -1]))
+    
         
